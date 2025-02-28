@@ -34,12 +34,12 @@ def evaluate_model_performance(model, X_test, y_test, is_log_transformed=True):
     y_test_pred_actual = y_test_pred_actual.detach().numpy()
     y_test_actual = y_test_actual.detach().numpy()
 
-    # Calculate performance metrics
+    
     rmsle = root_mean_squared_log_error(y_test_actual, y_test_pred_actual) ** 0.5
     mse = mean_squared_error(y_test_actual, y_test_pred_actual) ** 0.5
     mae = mean_absolute_error(y_test_actual, y_test_pred_actual)
 
-    # Print results
+    
     print(f" RMSLE: {rmsle:.4f}    | MSE: {mse:.4f}   | MAE {mae:.4f}")
     test_results = {"RMSLE": rmsle, "MSE": mse, "MAE": mae}
     return test_results
